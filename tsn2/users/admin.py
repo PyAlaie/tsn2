@@ -5,7 +5,7 @@ from .models import User
 
 
 class UserAdmin(auth_admin.UserAdmin):
-	pass
+    pass
 
 
 admin.site.register(User, UserAdmin)
