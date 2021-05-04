@@ -13,11 +13,12 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, fullname, password=None):
-        user = self.create_user(
-            email,
-            password=password,
+        user = self.model(
+            email=self.normalize_email(email),
             fullname=fullname,
         )
+
+        user.set_password(password)
         user.is_admin = True
         user.save(using=self._db)
         return user
