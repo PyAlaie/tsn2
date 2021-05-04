@@ -140,5 +140,4 @@ AUTH_USER_MODEL = 'users.User'
 
 LOCATION_FIELD = {
     'map.provider': 'openstreetmap',
-    'search.provider': 'nominatim',
 }
