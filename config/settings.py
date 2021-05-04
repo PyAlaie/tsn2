@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # tsn2
     'users.apps.UsersConfig',
     'stories.apps.StoriesConfig',
+    'web.apps.WebConfig',
 ]
 
 MIDDLEWARE = [
