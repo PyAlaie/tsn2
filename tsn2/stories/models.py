@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.contrib.gis.db import models as geo_models
+from location_field.models.plain import PlainLocationField
 from mptt.models import MPTTModel, TreeForeignKey
 from uuid import uuid4
 
@@ -14,7 +14,7 @@ class Post(MPTTModel):
 
 
 class Story(Post):
-    location = geo_models.PointField()
+    location = PlainLocationField()
     title = models.CharField(max_length=60, null=True, blank=True)
     description = models.TextField(max_length=255, null=True, blank=True)
 
