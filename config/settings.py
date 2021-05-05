@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # external
+    'rest_framework',
     'location_field.apps.DefaultConfig',
     # tsn2
     'users.apps.UsersConfig',

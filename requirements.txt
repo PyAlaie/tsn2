@@ -2,3 +2,4 @@ Django==3.2
 django-mptt==0.12.0
 djangorestframework==3.12.4
 django-location-field==2.1.0
+django-ratelimit==3.0.1
