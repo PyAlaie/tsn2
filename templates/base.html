@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <!-- Loading fonts from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400|Roboto:400|Roboto+Mono:400" rel="stylesheet">
+
+    {% load static %}
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<div class="main">
+    <div class="signup-form">
+        <div class="form-title-major">Create an Account</div>
+        <div class="form-title-minor">Access a world of Locations</div>
+        <form>
+            <input class="form-input" placeholder="Full Name" name="name">
+            <input class="form-input" placeholder="Email" name="email" type="email">
+            <input class="form-input" placeholder="Password" name="password" type="password">
+            <div class="form-submit-btn submit-btn-signup">Sign Up</div>
+        </form>
+
+        <a class="form-already-link">Already have an account? Click to Sign In</a>
+    </div>
+
+    <div class="login-form">
+        <div class="form-title-major">Login to your account</div>
+        <!-- <div class="form-title-minor"><< minor: Text for log in >></div> -->
+
+        <form>
+            <input class="form-input" placeholder="Email" name="email" type="email">
+            <input class="form-input" placeholder="Password" name="password" type="password">
+            <div class="form-submit-btn submit-btn-login">Sign In</div>
+        </form>
+
+        <a class="form-already-link">Don't have an account? Click to create one</a>
+    </div>
+
+    <div class="forgot-password-form">
+        <div class="form-title-major">Forgot your password?</div>
+        <div class="form-title-minor">Submit your email and we'll send you a link to reset your password.</div>
+        <form>
+            <input class="form-input" placeholder="Your Email" name="email" type="email">
+            <div class="form-submit-btn submit-btn-forgot-password">Reset Password</div>
+        </form>
+    </div>
+</div>
+    
+
+<script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>
