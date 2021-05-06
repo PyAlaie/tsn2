@@ -44,13 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # external
+    # rest_framework
     'rest_framework',
+    'rest_framework.authtoken',
+    # external
     'location_field.apps.DefaultConfig',
     # tsn2
     'users.apps.UsersConfig',
     'stories.apps.StoriesConfig',
     'web.apps.WebConfig',
+    'api.apps.APIConfig',
 ]
 
 MIDDLEWARE = [
