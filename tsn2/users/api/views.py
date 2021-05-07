@@ -3,6 +3,7 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
 from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 
 from .serializers import UserSerializer
 
@@ -12,7 +13,10 @@ class UserRegisterAPIView(CreateAPIView):
 
 
 class UserLoginAPIView(ObtainAuthToken):
-    pass
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+    parser_classes = api_settings.DEFAULT_PARSER_CLASSES
+    throttle_classes = api_settings.DEFAULT_THROTTLE_CLASSES
+    permission_classes = api_settings.DEFAULT_PERMISSION_CLASSES
 
 
 class UserLogoutAPIView(APIView):
@@ -22,4 +26,3 @@ class UserLogoutAPIView(APIView):
             "datails": "logged out."
         }
         return Response(response, status=HTTP_200_OK)
-
