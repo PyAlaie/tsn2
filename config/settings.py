@@ -151,3 +151,9 @@ AUTH_USER_MODEL = 'users.User'
 LOCATION_FIELD = {
     'map.provider': 'openstreetmap',
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
