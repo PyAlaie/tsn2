@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView, DestroyAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK
+from rest_framework.status import HTTP_204_NO_CONTENT
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 
@@ -32,7 +32,4 @@ class AuthLoginAPIView(ObtainAuthToken):
 class AuthLogoutAPIView(APIView):
     def post(self, request, format=None):
         request.user.auth_token.delete()
-        response = {
-            "datails": "logged out."
-        }
-        return Response(response, status=HTTP_200_OK)
+        return Response(response, status=HTTP_204_NO_CONTENT)
