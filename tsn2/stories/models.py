@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from location_field.models.plain import PlainLocationField
 from mptt.models import MPTTModel, TreeForeignKey
 from uuid import uuid4
+
+from .fields import XField, YField
 
 
 class Post(MPTTModel):
@@ -14,7 +15,9 @@ class Post(MPTTModel):
 
 
 class Story(Post):
-    location = PlainLocationField()
+    location_x = XField()
+    location_y = YField()
+
     title = models.CharField(max_length=60, null=True, blank=True)
     description = models.TextField(max_length=255, null=True, blank=True)
 

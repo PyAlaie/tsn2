@@ -47,8 +47,6 @@ INSTALLED_APPS = [
     # rest_framework
     'rest_framework',
     'rest_framework.authtoken',
-    # external
-    'location_field.apps.DefaultConfig',
     # tsn2
     'users.apps.UsersConfig',
     'stories.apps.StoriesConfig',
