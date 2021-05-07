@@ -155,3 +155,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+STORIES = {
+    'HIDESPOT_RATE': 100000,
+}
