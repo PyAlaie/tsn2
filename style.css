@@ -1,0 +1,80 @@
+*
+{
+    font-family: 'Vazir', sans-serif;
+}
+
+.my-container
+{
+    width: 60vw;
+    margin: 0 auto;
+    position: relative;
+}
+
+.title
+{
+    text-align: center;
+    font-size: 40px;
+    margin: 70px 0;
+}
+
+.middle-text
+{
+    text-align: left;
+    direction: rtl;
+    margin-top: 100px;
+    margin: 0 70px;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 20px;
+}
+
+.download-button
+{
+    margin: 50px 300px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 10px;
+    border: rgba(0, 0, 0, 0.8) 3px solid;
+    font-size: 30px;
+}
+
+.footer
+{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background-color: rgba(190, 190, 190, 0.3);
+}
+
+.footer-container
+{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.footer-items
+{
+    text-align: center;
+    direction: rtl;
+    padding: 40px 0;
+}
+
+.footer-items a
+{
+    padding: 0 30px;
+    border-left: rgba(177, 177, 177, 0.4) solid 1px;
+    border-right: rgba(177, 177, 177, 0.4) solid 1px;
+    display: inline-block;
+    text-decoration: none;
+    color: teal;
+}
+
+.copyright
+{
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 0;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(155, 155, 155);
+    color: white;
+}
