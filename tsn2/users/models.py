@@ -2,10 +2,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.text import slugify
 
+from uuid import uuid4
+
 from .managers import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    id = models.UUIDField(primary_key=True, default=uuid4)
     email = models.EmailField(max_length=255, unique=True)
     fullname = models.CharField(max_length=60)
     date_joined = models.DateField(auto_now_add=True, editable=False)
