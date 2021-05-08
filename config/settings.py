@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     # tsn2
     'users.apps.UsersConfig',
+    'profiles.apps.ProfilesConfig',
     'stories.apps.StoriesConfig',
     'web.apps.WebConfig',
     'api.apps.APIConfig',
