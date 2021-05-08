@@ -10,8 +10,13 @@ class StoryCreateSerializer(ModelSerializer):
         extra_kwargs = {'created_by': {'default': CurrentUserDefault()}}
 
 
-
-class StorySerializer(ModelSerializer):
+class StoryViewSerializer(ModelSerializer):
     class Meta:
         model = Story
         fields = ['id', 'hidespot_x', 'hidespot_y', 'title', 'description', 'created_at', 'created_by']
+
+
+class StoryDetailSerializer(ModelSerializer):
+    class Meta:
+        model = Story
+        fields = ['id', 'location_x', 'location_y', 'title', 'description', 'created_at', 'created_by']
