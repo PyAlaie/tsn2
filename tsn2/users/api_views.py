@@ -12,6 +12,13 @@ from .serializers import UserSerializer, TokenSerializer
 from .models import User
 
 
+class UserDetailAPIView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    lookup_field = 'email'
+
+
 class UserGetAPIView(RetrieveAPIView):
     queryset = User.userslug.get_queryset()
     serializer_class = UserSerializer
