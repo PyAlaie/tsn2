@@ -16,8 +16,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_verified = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
-    slug_name = models.SlugField(max_length=120)
-
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
@@ -32,5 +30,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.is_superuser
 
     def save(self, *args, **kwargs):
-        self.slug_name = slugify(self.fullname)
         super(User, self).save(*args, **kwargs)
+
+
+class UserSlug(models.Model):
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
+    slug_name = models.SlugField(max_length=120)
+    slug_id = models.IntegerField(default=0)
