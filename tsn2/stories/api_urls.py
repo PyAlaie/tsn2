@@ -1,9 +1,9 @@
 from django.urls import path, include
 
-from .api_views import StoryCreateAPIView, StoryAPIView, StoryDetailAPIView, StoryDeleteAPIView
+from .api_views import StoryCreateAPIView, StoryDetailAPIView, StoryHidenAPIView, StoryDeleteAPIView
 
 story_create = StoryCreateAPIView.as_view()
-story_view = StoryAPIView.as_view()
+story_view = StoryHidenAPIView.as_view()
 story_detail = StoryDetailAPIView.as_view()
 story_delete = StoryDeleteAPIView.as_view()
 
