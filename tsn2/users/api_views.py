@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 
 from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView, DestroyAPIView, RetrieveAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 from rest_framework.response import Response
 from rest_framework.status import HTTP_204_NO_CONTENT
 from rest_framework.authtoken.views import ObtainAuthToken
@@ -29,14 +29,16 @@ class UserRegisterAPIView(CreateAPIView):
 
 
 class UserDeleteAPIView(DestroyAPIView):
-    queryset = User.objects.all()
+    queryset = User.userslug.get_queryset()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
 
-    lookup_url_kwarg = ''
+    lookup_field = 'slug'
 
     def get_object(self):
-        return self.request.user
+        queryset = self.get_queryset()
+        slug_obj = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        return slug_obj.user
 
 
 class AuthLoginAPIView(ObtainAuthToken):

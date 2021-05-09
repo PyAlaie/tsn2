@@ -14,10 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
         validators=[validate_password],
         style={'input_type': 'password'}
     )
+    slug = serializers.CharField(source='userslug.slug', read_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'email', 'fullname', 'password', 'date_joined']
+        fields = ['id', 'slug', 'email', 'fullname', 'password', 'date_joined']
         read_only_fields = ['id', 'date_joined']
         extra_kwargs = {
             'fullname': {'required': True},
