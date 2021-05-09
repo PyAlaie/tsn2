@@ -37,3 +37,7 @@ class UserSlug(models.Model):
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     slug_name = models.SlugField(max_length=120)
     slug_id = models.IntegerField(default=0)
+    slug = models.CharField(unique=True, max_length=130)
+
+    def __str__(self):
+        return self.slug

@@ -18,4 +18,5 @@ def slug_id_handler(sender, instance, **kwargs):
     if instance.slug_id == 0:
         queryset = sender.objects.filter(slug_name=instance.slug_name)
         instance.slug_id = len(queryset)
+        instance.slug = f'{instance.slug_name}@{instance.slug_id}'
         instance.save()
