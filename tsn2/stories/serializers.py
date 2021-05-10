@@ -5,7 +5,6 @@ from .models import Story, Comment
 
 class StorySerializer(serializers.ModelSerializer):
     comments = serializers.HyperlinkedIdentityField(
-        read_only=True,
         view_name='api:stories:comment_list_api'
     )
 
