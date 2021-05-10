@@ -8,6 +8,8 @@ from .api_views import (
     CommentAPIView,
 )
 
+app_name = 'stories'
+
 story_create = StoryCreateAPIView.as_view()
 story_view = StoryHidenAPIView.as_view()
 story_detail = StoryDetailAPIView.as_view()

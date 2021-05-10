@@ -6,8 +6,13 @@ from .models import Story, Comment
 class StorySerializer(serializers.ModelSerializer):
     comments = serializers.HyperlinkedIdentityField(
         read_only=True,
-        view_name='comment_list_api'
+        view_name='api:stories:comment_list_api'
     )
+
+    created_by = serializers.SerializerMethodField('get_slug')
+
+    def get_slug(self, obj):
+        return obj.created_by.userslug.slug
 
     class Meta:
         model = Story
@@ -28,7 +33,12 @@ class StoryHidenSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    created_by = serializers.SerializerMethodField('get_slug')
+
+    def get_slug(self, obj):
+        return obj.created_by.userslug.slug
+
     class Meta:
         model = Comment
-        fields = ['id', 'created_by','text']
+        fields = ['id', 'created_by', 'text']
         read_only_fields = ['id', 'created_by']

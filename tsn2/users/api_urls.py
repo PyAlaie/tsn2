@@ -9,6 +9,8 @@ from .api_views import (
     AuthLogoutAPIView
 )
 
+app_name = 'users'
+
 user_detail = UserDetailAPIView.as_view()
 user_get = UserGetAPIView.as_view()
 user_register = UserRegisterAPIView.as_view()
