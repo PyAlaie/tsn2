@@ -30,5 +30,5 @@ class StoryHidenSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['id', 'text']
-        read_only_fields = ['id']
+        fields = ['id', 'created_by','text']
+        read_only_fields = ['id', 'created_by']
