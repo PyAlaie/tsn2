@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.reverse import reverse
 
 from .models import Story, Comment
 
@@ -11,7 +12,11 @@ class StorySerializer(serializers.ModelSerializer):
     created_by = serializers.SerializerMethodField('get_slug')
 
     def get_slug(self, obj):
-        return obj.created_by.userslug.slug
+        view_name = 'api:users:user_get_api'
+        url_kwargs = {"slug": obj.created_by.userslug.slug}
+        request = self.context['request']
+
+        return reverse(viewname=view_name, kwargs=url_kwargs, request=request)
 
     class Meta:
         model = Story
@@ -35,7 +40,11 @@ class CommentSerializer(serializers.ModelSerializer):
     created_by = serializers.SerializerMethodField('get_slug')
 
     def get_slug(self, obj):
-        return obj.created_by.userslug.slug
+        view_name = 'api:users:user_get_api'
+        url_kwargs = {"slug": obj.created_by.userslug.slug}
+        request = self.context['request']
+
+        return reverse(viewname=view_name, kwargs=url_kwargs, request=request)
 
     class Meta:
         model = Comment
