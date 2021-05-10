@@ -1,11 +1,18 @@
 from django.urls import path, include
 
-from .api_views import StoryCreateAPIView, StoryDetailAPIView, StoryHidenAPIView, StoryDeleteAPIView
+from .api_views import (
+    StoryCreateAPIView,
+    StoryDetailAPIView,
+    StoryHidenAPIView,
+    StoryDeleteAPIView,
+    CommentAPIView,
+)
 
 story_create = StoryCreateAPIView.as_view()
 story_view = StoryHidenAPIView.as_view()
 story_detail = StoryDetailAPIView.as_view()
 story_delete = StoryDeleteAPIView.as_view()
+comment_list = CommentAPIView.as_view()
 
 
 urlpatterns = [
@@ -14,6 +21,7 @@ urlpatterns = [
         path('', story_view, name='story_view_api'),
         path('detail/', story_detail, name='story_detail_api'),
         path('delete/', story_delete, name='story_delete_api'),
+        path('comments/', comment_list, name='comment_list_api')
     ])
     ),
 ]

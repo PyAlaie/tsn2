@@ -28,6 +28,7 @@ class UserGetAPIView(RetrieveAPIView):
     def get_object(self):
         queryset = self.get_queryset()
         slug_obj = get_object_or_404(queryset, slug=self.kwargs['slug'])
+        self.check_object_permissions(self.request, slug_obj)
         return slug_obj.user
 
 

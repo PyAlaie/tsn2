@@ -1,11 +1,9 @@
 from django.urls import path, include
 
-app_name = 'api'
-
 urlpatterns = [
-    #v1
+    # v1
     path('v1/', include([
-        path('users/', include('users.api_urls')),
-        path('stories/', include('stories.api_urls')),
+        path('users/', include('users.api_urls'), name='users'),
+        path('stories/', include('stories.api_urls'), name='stories'),
     ]))
 ]
