@@ -7,10 +7,16 @@ from .models import User, UserSlug
 
 @receiver(post_save, sender=User)
 def slug_handler(sender, instance, created, **kwargs):
-    if created:
+    def _create_slug(instance):
         slug_name = slugify(instance.fullname)
         slug_instance = UserSlug(user=instance, slug_name=slug_name)
         slug_instance.save()
+
+    if created:
+        _create_slug(instance=instance)
+    else:
+        instance.userslug.delete()
+        _create_slug(instance=instance)
 
 
 @receiver(post_save, sender=UserSlug)
