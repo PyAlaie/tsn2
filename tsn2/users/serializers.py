@@ -35,6 +35,13 @@ class UserSerializer(serializers.ModelSerializer):
 
         return user
 
+    def update(self, instance, validated_data):
+        instance.email = validated_data['email']
+        instance.fullname = validated_data['fullname']
+        instance.set_password(validated_data['password'])
+        instance.save()
+        return instance
+
 
 class TokenSerializer(serializers.Serializer):
     email = serializers.EmailField(
